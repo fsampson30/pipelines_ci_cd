@@ -1,5 +1,7 @@
 package com.sampson.pipelines_ci_cd.controller;
 
+import com.sampson.pipelines_ci_cd.entities.Person;
+import com.sampson.pipelines_ci_cd.service.PersonService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,11 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class PeopleController {
+@RequestMapping("/person")
+public class PersonController {
 
-    @GetMapping("/test")
-    public String helloWorld(){
-        return "Hello World";
+    private PersonService personService;
+
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
+
+    @GetMapping
+    public List<Person> getALl(){
+        return personService.getAll();
     }
 
     @RequestMapping ("/list")
