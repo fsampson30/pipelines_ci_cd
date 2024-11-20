@@ -2,9 +2,7 @@ package com.sampson.pipelines_ci_cd.controller;
 
 import com.sampson.pipelines_ci_cd.entities.Person;
 import com.sampson.pipelines_ci_cd.service.PersonService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +19,11 @@ public class PersonController {
     @GetMapping
     public List<Person> getALl(){
         return personService.getAll();
+    }
+
+    @PostMapping
+    public Person save(@RequestBody Person person){
+        return personService.save(person);
     }
 
     @RequestMapping ("/list")
