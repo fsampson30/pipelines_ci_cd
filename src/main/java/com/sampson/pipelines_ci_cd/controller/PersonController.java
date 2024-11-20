@@ -21,6 +21,11 @@ public class PersonController {
         return personService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Person findById(@PathVariable Long id){
+        return personService.findById(id);
+    }
+
     @PostMapping
     public Person save(@RequestBody Person person){
         return personService.save(person);
