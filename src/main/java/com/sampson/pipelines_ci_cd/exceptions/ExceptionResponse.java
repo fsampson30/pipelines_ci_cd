@@ -1,10 +1,12 @@
 package com.sampson.pipelines_ci_cd.exceptions;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 public class ExceptionResponse implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private LocalDateTime currentDateTime;
     private String message;
